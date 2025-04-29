@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>时间轴 - 文章发布记录</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #f5f7fa;
+      font-family: "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+      color: #333;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    nav {
+      background-color: #555;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+    }
+
+    .nav-left {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-center input {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .nav-right a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .nav-right a:hover {
+      color: #ddd;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 120px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      border-radius: 6px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 10px 12px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    header {
+      background-color: #666;
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      gap: 30px;
+    }
+
+    main {
+      flex: 1;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    main:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .timeline {
+      border-left: 3px solid #4CAF50;
+      margin-top: 30px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: -9px;
+      width: 18px;
+      height: 18px;
+      background: #4CAF50;
+      border-radius: 50%;
+      top: 0;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      background: white;
+      border: 3px solid #4CAF50;
+      border-radius: 50%;
+    }
+
+    .timeline-item .content {
+      margin-left: 30px;
+    }
+
+    .timeline-item .content .text {
+      font-size: 18px;
+    }
+
+    .timeline-item .content .text span {
+      color: gray;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .timeline-item .content .text a {
+      color: #333;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .timeline-item .content .text a:hover {
+      color: #4CAF50;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 导航栏 -->
+<nav>
+  <div class="nav-left">LucasGroup</div>
+  <div class="nav-center">
+    <input type="text" placeholder="搜索...">
+  </div>
+  <div class="nav-right">
+    <a href="homepage.html">首页</a>
+    <a href="timeline.html">时间轴</a>
+    <a href="tag.html">标签</a>
+    <a href="categories.html">分类</a>
+    <a href="notes.html">笔记</a>
+
+    <div class="dropdown">
+      <a href="#">List ▾</a>
+      <div class="dropdown-content">
+        <a href="music.html">🎵 Music</a>
+        <a href="gallery.html">🖼️ Gallery</a>
+      </div>
+    </div>
+
+    <a href="link.html">友链</a>
+    <a href="about.html">关于</a>
+  </div>
+</nav>
+
+<!-- 顶部横幅 -->
+<header>
+  时间轴 - 文章发布记录
+</header>
+
+<!-- 主体内容 -->
+<div class="container">
+  <main>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="content">
+          <div class="text">
+            <span>2025-04</span>
+            <a href="#">web_demo1制作完成</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Live2D小人 -->
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
+<script>
+  L2Dwidget.init({
+    model: {
+      jsonPath: "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json"
+    },
+    display: {
+      position: "left",
+      width: 100,
+      height: 200
+    },
+    mobile: {
+      show: true
+    },
+    react: {
+      opacityDefault: 1,
+      opacityOnHover: 1
+    }
+  });
+</script>
+
+</body>
+</html>
+
+
+

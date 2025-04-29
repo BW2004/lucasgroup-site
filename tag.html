@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>标签 - 标签页</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans SC", sans-serif;
+      background-color: #f5f7fa;
+    }
+
+    nav {
+      background-color: #555;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+    }
+
+    .nav-left {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-center input {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .nav-right a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .nav-right a:hover {
+      color: #ddd;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 120px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      border-radius: 6px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 10px 12px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    header {
+      background-color: #666;
+      color: white;
+      text-align: center;
+      padding: 80px 0;
+      font-size: 36px;
+      font-weight: bold;
+      letter-spacing: 4px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .tag {
+      font-size: 18px;
+      padding: 8px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .tag:hover {
+      transform: scale(1.05);
+    }
+
+    .tag.math {
+      background-color: #e1d5f4;
+      color: #663399;
+    }
+
+    .tag.web {
+      background-color: #c2f0e4;
+      color: #007f73;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 40px 0;
+    }
+
+    .comment-section {
+      margin-top: 40px;
+    }
+
+    .comment-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .comment-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      background-color: #eee;
+      border-radius: 50%;
+    }
+
+    textarea {
+      flex: 1;
+      height: 80px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .submit-btn:hover {
+      background-color: #43a047;
+    }
+
+    canvas, div[style*="z-index"] {
+      pointer-events: none;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav>
+  <div class="nav-left">LucasGroup</div>
+  <div class="nav-center">
+    <input type="text" placeholder="搜索...">
+  </div>
+  <div class="nav-right">
+    <a href="homepage.html">首页</a>
+    <a href="timeline.html">时间轴</a>
+    <a href="tag.html">标签</a>
+    <a href="categories.html">分类</a>
+    <a href="notes.html">笔记</a>
+
+    <div class="dropdown">
+      <a href="#">List ▾</a>
+      <div class="dropdown-content">
+        <a href="music.html">🎵 Music</a>
+        <a href="gallery.html">🖼️ Gallery</a>
+      </div>
+    </div>
+
+    <a href="link.html">友链</a>
+    <a href="about.html">关于</a>
+  </div>
+</nav>
+
+<!-- 灰色顶部 -->
+<header>标签</header>
+
+<!-- 主体内容 -->
+<div class="container">
+  <h2>当前标签：2 个</h2>
+  <div class="tags">
+    <a href="tag_math.html" class="tag math">数学</a>
+    <a href="tag_web.html" class="tag web">Web</a>
+  </div>
+
+  <hr>
+
+  <div class="comment-section">
+    <div class="comment-title">讨论区</div>
+    <div class="comment-box">
+      <div class="avatar"></div>
+      <textarea placeholder="说点什么..."></textarea>
+    </div>
+    <button class="submit-btn">发布</button>
+  </div>
+</div>
+
+<!-- Live2D小人 -->
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
+<script>
+  L2Dwidget.init({
+    model: {
+      jsonPath: "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json"
+    },
+    display: {
+      position: "left",
+      width: 100,
+      height: 200
+    },
+    mobile: {
+      show: true
+    },
+    react: {
+      opacityDefault: 1,
+      opacityOnHover: 1
+    }
+  });
+</script>
+
+</body>
+</html>
+
+

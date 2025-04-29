@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>LucasGroup - 首页</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans SC", sans-serif;
+      background-color: #f5f7fa;
+      overflow-x: hidden;
+    }
+
+    /* 导航栏 */
+    nav {
+      background-color: #555;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+    }
+
+    .nav-left {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-center input {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .nav-right a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .nav-right a:hover {
+      color: #ddd;
+    }
+
+    /* List下拉菜单 */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 120px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      border-radius: 6px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 10px 12px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Hero顶部背景 */
+    .hero {
+      height: 100vh;
+      background: url('https://cdn.pixabay.com/photo/2016/11/29/03/14/milky-way-1867315_1280.jpg') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: black;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    /* 向下箭头 */
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      font-size: 32px;
+      color: black;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(10px); }
+      60% { transform: translateY(5px); }
+    }
+
+    /* 主体内容 */
+    .content {
+      display: flex;
+      max-width: 1200px;
+      margin: 60px auto 0 auto;
+      padding: 20px;
+      gap: 30px;
+    }
+
+    .main-content {
+      flex: 3;
+    }
+
+    .article-card {
+      background: white;
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s;
+    }
+
+    .article-card:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .article-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .article-excerpt {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .sidebar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .sidebar-card h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #4CAF50;
+      padding-bottom: 8px;
+    }
+
+    .sidebar-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar-card li {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    /* 禁止Live2D元素响应鼠标 */
+    canvas, div[style*="z-index"] { pointer-events: none; outline: none; }
+  </style>
+</head>
+
+<body>
+
+<!-- 导航栏 -->
+<nav>
+  <div class="nav-left">LucasGroup</div>
+  <div class="nav-center">
+    <input type="text" placeholder="搜索...">
+  </div>
+  <div class="nav-right">
+    <a href="homepage.html">首页</a>
+    <a href="timeline.html">时间轴</a>
+    <a href="tag.html">标签</a>
+    <a href="categories.html">分类</a>
+    <a href="notes.html">笔记</a>
+    <div class="dropdown">
+      <a href="#">List ▾</a>
+      <div class="dropdown-content">
+        <a href="music.html">🎵 Music</a>
+        <a href="gallery.html">🖼️ Gallery</a>
+      </div>
+    </div>
+    <a href="link.html">友链</a>
+    <a href="about.html">关于</a> <!-- ✅ 现在关于是标准按钮 -->
+  </div>
+</nav>
+
+<!-- Hero背景 -->
+<section class="hero">
+  <h1>LucasGroup</h1>
+  <div class="scroll-down" onclick="scrollToContent()">⌄</div>
+</section>
+
+<!-- 主体内容 -->
+<div class="content">
+  <div class="main-content">
+    <div class="article-card">
+      <div class="article-title">量子场论笔记（一）</div>
+      <div class="article-excerpt">介绍拉格朗日场论基本原理和作用量定义...</div>
+    </div>
+    <div class="article-card">
+      <div class="article-title">量子场论笔记（二）</div>
+      <div class="article-excerpt">推导哈密顿量密度和动力学约束条件...</div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="sidebar-card">
+      <h3>分类</h3>
+      <ul>
+        <li>学习笔记</li>
+        <li>便签</li>
+        <li>书摘</li>
+      </ul>
+    </div>
+    <div class="sidebar-card">
+      <h3>标签</h3>
+      <ul>
+        <li>物理</li>
+        <li>数学</li>
+        <li>理论力学</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Live2D小人 -->
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
+<script>
+  L2Dwidget.init({
+    model: { jsonPath: "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json" },
+    display: { position: "left", width: 100, height: 200 },
+    mobile: { show: true },
+    react: { opacityDefault: 1, opacityOnHover: 1 }
+  });
+
+  function scrollToContent() {
+    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
+
+
+
