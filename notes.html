@@ -107,59 +107,6 @@
       width: 100%;
     }
 
-    .comment-section {
-      margin-top: 30px;
-      text-align: left;
-    }
-
-    .comment-section h3 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .comment-box {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 20px;
-    }
-
-    .comment-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: #ccc;
-      margin-right: 10px;
-    }
-
-    .comment-input {
-      flex: 1;
-    }
-
-    .comment-input textarea {
-      width: 100%;
-      height: 100px;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      resize: vertical;
-      font-family: "Noto Sans SC", sans-serif;
-      font-size: 16px;
-    }
-
-    .comment-button {
-      margin-top: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 8px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .comment-button:hover {
-      background-color: #45a049;
-    }
-
     canvas, div[style*="z-index"] {
       pointer-events: none;
       outline: none;
@@ -204,15 +151,24 @@
 
   <hr class="divider">
 
+  <!-- Giscus 评论区 -->
   <div class="comment-section">
     <h3>讨论区</h3>
-    <div class="comment-box">
-      <div class="comment-avatar"></div>
-      <div class="comment-input">
-        <textarea placeholder="说点什么..."></textarea>
-        <button class="comment-button">发布评论</button>
-      </div>
-    </div>
+    <script src="https://giscus.app/client.js"
+      data-repo="BW2004/lucasgroup-comments"
+      data-repo-id="R_kgDOOhcPVA"
+      data-category="General"
+      data-category-id="DIC_kwDOOhcPVM4CpkrZ"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="preferred_color_scheme"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async>
+    </script>
   </div>
 </div>
 
@@ -240,5 +196,4 @@
 
 </body>
 </html>
-
 
